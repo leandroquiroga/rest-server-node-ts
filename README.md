@@ -45,6 +45,11 @@ que aplica los 4 metodos mas importantes a la hora de realizar un CRUD
 ### GET
 http://localhost:8000/api/users retorna todos los usuarios en la base de datos
 
+OR 
+
+http://localhost:8000/api/users/id retorna un usuario de la bases de datos mediante su id
+
+
 ### POST 
 http://localhost:8000/api/users/new Crea un nuevo usuario
 
