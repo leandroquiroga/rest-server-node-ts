@@ -2,6 +2,7 @@ import express, { Application } from 'express';
 import cors from 'cors';
 
 import router from '../routes/user';
+import db from '../database/connection';
 import { envairoment } from '../configuration/envairoment';
 
 class Server {
@@ -19,7 +20,20 @@ class Server {
     this.port = envairoment.PORT;
     this.host = envairoment.HOST;
     
+    // Conecta con la bases de datos 
+    this.dbConnection();
+    
     this.middleware();
+  };
+
+  async dbConnection (){
+    try {
+      await db.authenticate();
+      console.log('Database connect success');
+      
+    } catch (error) {
+      console.log('Connection failed! Please try again', error);
+    };
   };
 
   middleware(){
